@@ -1,4 +1,6 @@
 // Дерево квадрантов
+// Задача: нахождение ближайшей к координате точки
+
 #include <iostream>
 #include <cmath>
 using namespace std;
