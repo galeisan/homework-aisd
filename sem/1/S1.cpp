@@ -1,4 +1,4 @@
-// C++ Implementation of Quad Tree
+
 #include <iostream>
 #include <cmath>
 using namespace std;
