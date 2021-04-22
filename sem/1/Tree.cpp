@@ -1,3 +1,6 @@
+//Дерево квадрантов
+//Нахождение минимального и максимального элемента дерева
+
 #include <queue>
 #include <iostream>
 #include <chrono>
@@ -290,29 +293,28 @@ int main()
 
     Tree tree2;
     cout << endl << "Sozdaly vtoroe pustoe derevo i zapolnily ego chislami 3, 4, 2:" << endl;
-    tree2.add(3);
-    tree2.add(4);
-    tree2.add(2);
-    //tree2.printByTree();
+    for (int i = 0; i < 50; i++) {
+        file >> n;
+        for (int i = 0; i < n; i++) {
+            file >> a;
+            tree2.add(a);
+        }
+    }
 
-    cout << endl << "Ochistili eto derevo:" << endl;
-    tree2.clear();
-    //tree2.print();
 
-    cout << endl << "Skopiruem v nego pervoe derevo:" << endl;
-    tree2.copy(tree);
-    /* tree2.printByTree();
-    cout << endl; */
 
     cout << endl << "Udalim iz nego chislo a:" << endl;
-    tree2.erase(a);
-    cout << tree2;
-    cout << endl;
+    for (int i = 0; i < 50; i++) {
+        file >> n;
+        for (int i = 0; i < n; i++) {
+            file >> a;
+            tree2.erase(a);
+        }
+    }
+
 
     cout << endl << "Sozdadim tretie derevo - kopiyu vtorogo:" << endl;
     Tree tree3(tree2);
-    /* tree3.printByTree();
-    cout << endl; */
 
     cout << endl << "Vuvedem massiv, sozdannuy etim derevom:" << endl;
     for (dataType elem : tree3.toArray())
@@ -338,22 +340,7 @@ int main()
     else
         cout << "Element " << findItem << " ne soderzhitsya v dereve" << endl;
 
-    /*cout << endl << "Proverim na pustom dereve:" << endl;
-    tree3.clear();
-
-    cout << "Poisk elementa";
-    cin >> findItem;
-    if (tree3.isExist(findItem))
-        cout << "Element " << findItem << " soderzhitsya v dereve" << endl;
-    else
-        cout << "Element " << findItem << " ne soderzhitsya v dereve" << endl;
-
-    cout << "Udalim " << findItem << " iz dereva:" << endl;
-    tree3.erase(findItem);
-    if (tree3.isExist(findItem))
-        cout << "Element " << findItem << " soderzhitsya v dereve" << endl << endl;
-    else
-        cout << "Element " << findItem << " ne soderzhitsya v dereve" << endl << endl; */
+  
 
     cout << "Chislo elementov: " << tree3.count() << endl;
     cout << "Min znachenie: " << tree3.min() << endl;
