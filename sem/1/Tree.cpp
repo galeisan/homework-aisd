@@ -1,10 +1,11 @@
-//Quadtree
-
 #include <queue>
 #include <iostream>
+#include <chrono>
+#include <fstream>
 #include "Tree.h"
 
 using namespace std;
+using namespace std::chrono;
 
 // Закрытые методы
 int Tree::_numOfTree(dataType nodeVal, dataType newVal) {		// Функция определения номера поддерева, куда добавлять новый элемент
@@ -268,9 +269,15 @@ ostream &operator<<(ostream &out, Tree tree) {		// Перегруженная о
 }
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    vector<dataType> vec = { 13, 10944, 33, 64, 12, 0.1, 10, 14, 1245, 1.1, 0.8, 11, 5, 0.009, 13, 0.05, 124, 17, 600, 1450, 13000, 2756 };
-
+    int n;
+    cin >> n;
+    n = n;
+    dataType a;
+    vector<dataType> vec(0);   // объявляем вектор размером в n элементов и инициализируем их нулями
+    for (int i = 0; i < n; i++) {
+        cin >> a;
+        vec.push_back(a);
+    }
     Tree tree(4);
    /* cout << "Sozdaly pustoe derevo s odnim elementom:" << endl;
     tree.print();
@@ -297,8 +304,8 @@ int main()
     /* tree2.printByTree();
     cout << endl; */
 
-    cout << endl << "Udalim iz nego chislo 1450:" << endl;
-    tree2.erase(1450);
+    cout << endl << "Udalim iz nego chislo a:" << endl;
+    tree2.erase(a);
     cout << tree2;
     cout << endl;
 
@@ -316,7 +323,9 @@ int main()
     cout << "Min znachenie: " << tree3.min() << endl;
     cout << "Max znachenie: " << tree3.max() << endl << endl;
 
-    int findItem = 600;
+    int findItem;
+    cout << "Poisk elementa";
+    cin >> findItem;
     if (tree3.isExist(findItem))
         cout << "Element " << findItem << " soderzhitsya v dereve" << endl;
     else
@@ -329,10 +338,11 @@ int main()
     else
         cout << "Element " << findItem << " ne soderzhitsya v dereve" << endl;
 
-    cout << endl << "Proverim na pustom dereve:" << endl;
+    /*cout << endl << "Proverim na pustom dereve:" << endl;
     tree3.clear();
 
-    findItem = 13;
+    cout << "Poisk elementa";
+    cin >> findItem;
     if (tree3.isExist(findItem))
         cout << "Element " << findItem << " soderzhitsya v dereve" << endl;
     else
@@ -343,11 +353,10 @@ int main()
     if (tree3.isExist(findItem))
         cout << "Element " << findItem << " soderzhitsya v dereve" << endl << endl;
     else
-        cout << "Element " << findItem << " ne soderzhitsya v dereve" << endl << endl;
+        cout << "Element " << findItem << " ne soderzhitsya v dereve" << endl << endl; */
 
     cout << "Chislo elementov: " << tree3.count() << endl;
     cout << "Min znachenie: " << tree3.min() << endl;
     cout << "Max znachenie: " << tree3.max() << endl << endl;
 
-    system("pause");
 }
